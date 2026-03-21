@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opportunity Selection Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">Decision Engine</p>
+      <h1>Pick the top 3 opportunities with the best real odds of success.</h1>
+      <p class="hero-copy">
+        This tool ranks scholarships, competitions, and internships by realistic win probability,
+        not prestige. Paste a student profile, add the opportunity list, and get JSON-ready output.
+      </p>
+    </header>
+
+    <main class="workspace">
+      <section class="panel input-panel">
+        <div class="panel-header">
+          <h2>Inputs</h2>
+          <p>Describe the student and list the available opportunities.</p>
+        </div>
+
+        <label for="studentProfile">Student Profile</label>
+        <textarea id="studentProfile" placeholder="Example:
+11th grade student interested in business, debate, and community service.
+Skills: public speaking, writing, research, Canva.
+Achievements: school newspaper editor, DECA finalist, volunteer tutor."></textarea>
+
+        <label for="opportunities">Opportunities</label>
+        <textarea id="opportunities" placeholder="Enter one opportunity per block. Separate each one with a blank line.
+
+Example:
+Name: Local Youth Leadership Scholarship
+Type: Scholarship
+Eligibility: High school juniors and seniors in New York
+Requirements: Essay, community service record
+Competitiveness: Moderate
+Difficulty: Intermediate
+Upside: $2,500 and local recognition"></textarea>
+
+        <div class="actions">
+          <button id="analyzeButton" type="button">Generate Top 3</button>
+          <button id="loadSampleButton" class="secondary" type="button">Load Sample</button>
+        </div>
+      </section>
+
+      <section class="panel output-panel">
+        <div class="panel-header">
+          <h2>JSON Output</h2>
+          <p>The result stays in the exact JSON response format, with a cleaner visual summary above it.</p>
+        </div>
+
+        <div class="result-toolbar">
+          <p id="resultStatus" class="result-status">Waiting for analysis.</p>
+          <button id="copyButton" class="secondary" type="button">Copy JSON</button>
+        </div>
+
+        <div id="resultCards" class="result-cards" aria-live="polite"></div>
+
+        <div class="json-shell">
+          <div class="json-header">
+            <span>Structured Output</span>
+            <span class="json-pill">JSON</span>
+          </div>
+          <pre id="output" aria-live="polite">{
+  "top_opportunities": []
+}</pre>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
