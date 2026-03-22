@@ -57,27 +57,15 @@ Upside: $2,500 and local recognition"></textarea>
 
       <section class="panel output-panel">
         <div class="panel-header">
-          <h2>JSON Output</h2>
-          <p>The result stays in the exact JSON response format, with a cleaner visual summary above it.</p>
+          <h2>Top 3 Recommendations</h2>
+          <p>See the strongest realistic opportunities for this student, with clear reasoning and next steps.</p>
         </div>
 
         <div class="result-toolbar">
           <p id="resultStatus" class="result-status">Waiting for analysis.</p>
-          <button id="copyButton" class="secondary" type="button">Copy JSON</button>
         </div>
 
         <div id="resultCards" class="result-cards" aria-live="polite"></div>
-
-        <div class="json-shell">
-          <div class="json-header">
-            <span>Structured Output</span>
-            <span class="json-pill">JSON</span>
-          </div>
-          <pre id="output" aria-live="polite">{
-  "recommendations": [],
-  "rejected_summary": ""
-}</pre>
-        </div>
       </section>
     </main>
 

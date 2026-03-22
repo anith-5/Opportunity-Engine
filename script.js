@@ -1,20 +1,13 @@
 const studentProfileInput = document.getElementById("studentProfile");
 const opportunitiesInput = document.getElementById("opportunities");
-const output = document.getElementById("output");
 const resultCards = document.getElementById("resultCards");
 const resultStatus = document.getElementById("resultStatus");
 const inputHint = document.getElementById("inputHint");
 const analyzeButton = document.getElementById("analyzeButton");
 const analyzeCatalogButton = document.getElementById("analyzeCatalogButton");
 const loadSampleButton = document.getElementById("loadSampleButton");
-const copyButton = document.getElementById("copyButton");
 const loadCatalogButton = document.getElementById("loadCatalogButton");
 const catalogGrid = document.getElementById("catalogGrid");
-
-let latestJson = `{
-  "recommendations": [],
-  "rejected_summary": ""
-}`;
 
 const catalogOpportunities = [
   {
@@ -264,21 +257,6 @@ Upside: $3,000 and mentor access`;
 
   const result = rankOpportunities(studentProfileInput.value, opportunitiesInput.value);
   renderResults(result);
-});
-
-copyButton.addEventListener("click", async () => {
-  try {
-    await navigator.clipboard.writeText(latestJson);
-    copyButton.textContent = "Copied";
-    setTimeout(() => {
-      copyButton.textContent = "Copy JSON";
-    }, 1400);
-  } catch (_error) {
-    copyButton.textContent = "Copy failed";
-    setTimeout(() => {
-      copyButton.textContent = "Copy JSON";
-    }, 1400);
-  }
 });
 
 loadCatalogButton.addEventListener("click", () => {
@@ -611,8 +589,6 @@ function clamp(value, min, max) {
 }
 
 function renderResults(result) {
-  latestJson = JSON.stringify(result, null, 2);
-  output.textContent = latestJson;
   renderCards(result.recommendations, result.rejected_summary);
   if (!resultStatus.textContent || resultStatus.textContent.startsWith("Waiting")) {
     updateResultStatus(result.recommendations, result.rejected_summary);
@@ -668,11 +644,6 @@ function showMissingProfileState(message) {
   resultStatus.textContent = message;
   studentProfileInput.focus();
   renderCards([]);
-  latestJson = `{
-  "recommendations": [],
-  "rejected_summary": ""
-}`;
-  output.textContent = latestJson;
 }
 
 function chanceClass(level) {
