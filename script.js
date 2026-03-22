@@ -12,7 +12,8 @@ const loadCatalogButton = document.getElementById("loadCatalogButton");
 const catalogGrid = document.getElementById("catalogGrid");
 
 let latestJson = `{
-  "top_opportunities": []
+  "recommendations": [],
+  "rejected_summary": ""
 }`;
 
 const catalogOpportunities = [
@@ -290,32 +291,20 @@ function rankOpportunities(studentProfile, rawOpportunities) {
   const opportunities = parseOpportunities(rawOpportunities);
 
   if (!studentProfile.trim() || opportunities.length === 0) {
-    return { top_opportunities: [] };
+    return emptyResult();
   }
 
   const studentSignals = buildStudentSignals(studentProfile);
-  const ranked = opportunities
-    .map((opportunity) => scoreOpportunity(opportunity, studentSignals))
-    .sort((a, b) => b.chance_score - a.chance_score)
-    .slice(0, 3)
-    .map(formatOpportunity);
-
-  return { top_opportunities: ranked };
+  return buildRecommendationResult(opportunities, studentSignals);
 }
 
 function rankCatalog(studentProfile) {
   if (!studentProfile.trim()) {
-    return { top_opportunities: [] };
+    return emptyResult();
   }
 
   const studentSignals = buildStudentSignals(studentProfile);
-  const ranked = catalogOpportunities
-    .map((opportunity) => scoreOpportunity(opportunity, studentSignals))
-    .sort((a, b) => b.chance_score - a.chance_score)
-    .slice(0, 3)
-    .map(formatOpportunity);
-
-  return { top_opportunities: ranked };
+  return buildRecommendationResult(catalogOpportunities, studentSignals);
 }
 
 function parseOpportunities(rawText) {
@@ -366,6 +355,7 @@ function buildStudentSignals(profile) {
     keywordHits,
     hasStrongTrackRecord: /(finalist|winner|captain|editor|president|founder|qualifier|officer)/i.test(profile),
     hasExperience: /(internship|research|volunteer|job shadow|leadership|project|competition)/i.test(profile),
+    profileSummary: summarizeProfile(profile, keywordHits),
   };
 }
 
@@ -407,6 +397,7 @@ function scoreOpportunity(opportunity, studentSignals) {
 
   const keyStrengthMatch = determineStrengthMatch(searchable, studentSignals);
   const riskFactor = determineRiskFactor(searchable, studentSignals, accessibility, difficultyMatch, competitiveness);
+  const rejectionReason = getRejectionReason(opportunity, searchable, studentSignals, fit, difficultyMatch, accessibility);
 
   return {
     ...opportunity,
@@ -416,6 +407,7 @@ function scoreOpportunity(opportunity, studentSignals) {
     key_strength_match: keyStrengthMatch,
     risk_factor: riskFactor,
     action_plan: buildActionPlan(opportunity, keyStrengthMatch),
+    rejection_reason: rejectionReason,
   };
 }
 
@@ -564,12 +556,9 @@ function buildActionPlan(opportunity, keyStrengthMatch) {
 function formatOpportunity(opportunity) {
   return {
     name: opportunity.name,
-    chance_score: opportunity.chance_score,
     chance_level: opportunity.chance_level,
-    reason: opportunity.reason,
-    key_strength_match: opportunity.key_strength_match,
-    risk_factor: opportunity.risk_factor,
-    action_plan: opportunity.action_plan,
+    why_best_match: opportunity.reason,
+    next_step: opportunity.action_plan,
     organization: opportunity.organization || null,
     type: opportunity.type || null,
     location: opportunity.location || null,
@@ -580,6 +569,8 @@ function formatOpportunity(opportunity) {
     tags: opportunity.tags || [],
     description: opportunity.description || null,
     link: opportunity.link || null,
+    chance_score: opportunity.chance_score,
+    risk_factor: opportunity.risk_factor,
   };
 }
 
@@ -622,13 +613,13 @@ function clamp(value, min, max) {
 function renderResults(result) {
   latestJson = JSON.stringify(result, null, 2);
   output.textContent = latestJson;
-  renderCards(result.top_opportunities);
+  renderCards(result.recommendations, result.rejected_summary);
   if (!resultStatus.textContent || resultStatus.textContent.startsWith("Waiting")) {
-    updateResultStatus(result.top_opportunities);
+    updateResultStatus(result.recommendations, result.rejected_summary);
   }
 }
 
-function renderCards(opportunities) {
+function renderCards(opportunities, rejectedSummary) {
   if (!opportunities.length) {
     resultCards.innerHTML = `
       <article class="result-card">
@@ -651,23 +642,26 @@ function renderCards(opportunities) {
         </div>
       </div>
       <div class="chance-pill ${chanceClass(opportunity.chance_level)}">${escapeHtml(opportunity.chance_level)}</div>
-      <p><span class="result-label">Why it fits:</span> ${escapeHtml(opportunity.reason)}</p>
-      <p><span class="result-label">Strength match:</span> ${escapeHtml(opportunity.key_strength_match)}</p>
+      <p><span class="result-label">Why it fits:</span> ${escapeHtml(opportunity.why_best_match)}</p>
       <p><span class="result-label">Risk:</span> ${escapeHtml(opportunity.risk_factor)}</p>
-      <p><span class="result-label">Next move:</span> ${escapeHtml(opportunity.action_plan)}</p>
+      <p><span class="result-label">Next move:</span> ${escapeHtml(opportunity.next_step)}</p>
       ${opportunity.link ? `<p><span class="result-label">Source:</span> <a href="${escapeHtml(opportunity.link)}" target="_blank" rel="noreferrer">View program</a></p>` : ""}
     </article>
-  `).join("");
+  `).join("") + `
+    <article class="result-card">
+      <p><span class="result-label">Rejected summary:</span> ${escapeHtml(rejectedSummary)}</p>
+    </article>
+  `;
 }
 
-function updateResultStatus(opportunities) {
+function updateResultStatus(opportunities, rejectedSummary) {
   if (!opportunities.length) {
     resultStatus.textContent = "Waiting for enough input to rank opportunities.";
     return;
   }
 
   const highCount = opportunities.filter((item) => item.chance_level === "HIGH").length;
-  resultStatus.textContent = `Ranked ${opportunities.length} opportunities. ${highCount} marked as high-probability plays.`;
+  resultStatus.textContent = `Selected ${opportunities.length} recommendations after filtering. ${highCount} are high-probability plays. ${rejectedSummary}`;
 }
 
 function showMissingProfileState(message) {
@@ -675,7 +669,8 @@ function showMissingProfileState(message) {
   studentProfileInput.focus();
   renderCards([]);
   latestJson = `{
-  "top_opportunities": []
+  "recommendations": [],
+  "rejected_summary": ""
 }`;
   output.textContent = latestJson;
 }
@@ -754,6 +749,90 @@ function renderCatalog(items) {
       <a href="${escapeHtml(item.link)}" target="_blank" rel="noreferrer">Open source listing</a>
     </article>
   `).join("");
+}
+
+function buildRecommendationResult(opportunities, studentSignals) {
+  const scored = opportunities.map((opportunity) => scoreOpportunity(opportunity, studentSignals));
+  const kept = scored.filter((opportunity) => !opportunity.rejection_reason);
+  const rejected = scored.filter((opportunity) => opportunity.rejection_reason);
+  const fallbackPool = kept.length >= 3 ? kept : scored;
+  const recommendations = fallbackPool
+    .sort((a, b) => b.chance_score - a.chance_score)
+    .slice(0, 3)
+    .map(formatOpportunity);
+
+  return {
+    recommendations,
+    rejected_summary: buildRejectedSummary(rejected, opportunities.length, recommendations.length),
+  };
+}
+
+function getRejectionReason(opportunity, searchable, studentSignals, fit, difficultyMatch, accessibility) {
+  if (accessibility < 35) {
+    return "it does not match the student's grade-level or stated eligibility";
+  }
+
+  if (difficultyMatch < 35) {
+    return "it appears far too advanced for the student's current experience level";
+  }
+
+  if (fit < 42) {
+    return "it has weak alignment with the student's interests and demonstrated strengths";
+  }
+
+  if (/rising ninth graders/i.test(opportunity.eligibility || "") && !matchesGrade(searchable, studentSignals.gradeLevel)) {
+    return "it targets a different grade band than the student";
+  }
+
+  return "";
+}
+
+function matchesGrade(searchable, gradeLevel) {
+  if (!gradeLevel) {
+    return true;
+  }
+
+  return normalizeGradeAliases(gradeLevel).some((term) => searchable.includes(term));
+}
+
+function buildRejectedSummary(rejected, totalCount, selectedCount) {
+  if (!rejected.length) {
+    return selectedCount < totalCount
+      ? "A few lower-scoring options were left out because stronger realistic matches were available."
+      : "No opportunities were filtered out; the top three were chosen from the full set."
+  }
+
+  const reasons = summarizeRejectedReasons(rejected);
+  return `Rejected ${rejected.length} opportunities mostly because ${reasons}.`;
+}
+
+function summarizeRejectedReasons(rejected) {
+  const counts = {};
+
+  for (const item of rejected) {
+    counts[item.rejection_reason] = (counts[item.rejection_reason] || 0) + 1;
+  }
+
+  return Object.entries(counts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 2)
+    .map(([reason]) => reason)
+    .join(" and ");
+}
+
+function emptyResult() {
+  return {
+    recommendations: [],
+    rejected_summary: "",
+  };
+}
+
+function summarizeProfile(profile, keywordHits) {
+  if (!keywordHits.length) {
+    return "the student's current profile";
+  }
+
+  return keywordHits.map(readableGroupName).slice(0, 2).join(" and ");
 }
 
 renderCatalog(catalogOpportunities);
