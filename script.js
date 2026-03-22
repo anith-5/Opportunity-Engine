@@ -153,658 +153,246 @@ const catalogOpportunities = [
     competitiveness: "Moderate",
     requirements: "Interest in business, media, sports, or entertainment with willingness to collaborate in teams",
     upside: "Career exposure, leadership development, residential business experience"
+  },
+  {
+    name: "Boston University Summer Theatre Institute",
+    organization: "Boston University College of Fine Arts",
+    type: "program",
+    location: "Boston, MA",
+    duration: "Jun 30 - Jul 27",
+    deadline: "Rolling",
+    difficulty: "medium",
+    eligibility: "High school students interested in theatre and performing arts.",
+    tags: ["arts", "theatre", "performance", "creative"],
+    description: "A four-week intensive summer program where students develop acting, voice, and stagecraft skills through hands-on workshops and production work.",
+    link: null,
+    competitiveness: "Moderate",
+    requirements: "Interest in theatre, willingness to participate in group work and performances",
+    upside: "Hands-on theatre experience, portfolio building, college-level instruction"
+  },
+  {
+    name: "Deepen 1:1 Work Experience",
+    organization: "Delta Institute",
+    type: "internship",
+    location: "Online",
+    duration: "Year Round (Rolling)",
+    deadline: "Rolling",
+    difficulty: "easy",
+    eligibility: "High school students interested in research, leadership, and mentorship.",
+    tags: ["research", "leadership", "mentoring", "online"],
+    description: "A flexible one-on-one mentorship program pairing students with professionals for guided research projects and leadership development.",
+    link: null,
+    competitiveness: "Open enrollment",
+    requirements: "Interest in self-directed learning, basic computer access",
+    upside: "Flexible schedule, personalized mentorship, resume building"
+  },
+  {
+    name: "Barrett Summer Scholars (BSS)",
+    organization: "Arizona State University",
+    type: "program",
+    location: "Various (In Person)",
+    duration: "Summer (Various)",
+    deadline: "Rolling",
+    difficulty: "medium",
+    eligibility: "High school students exploring college-level academics and different subjects.",
+    tags: ["college prep", "stem", "arts", "leadership"],
+    description: "A multi-track summer experience offering hands-on exploration in STEM, business, arts, and more at Arizona State University campuses.",
+    link: null,
+    competitiveness: "Moderate",
+    requirements: "Completed application, interest in exploring college subjects",
+    upside: "College campus exposure, multiple subject tracks, academic exploration"
+  },
+  {
+    name: "SEASCape: Ocean Studies On The Cape",
+    organization: "Sea Education Association",
+    type: "program",
+    location: "Falmouth, MA",
+    duration: "Summer (Various)",
+    deadline: "Rolling",
+    difficulty: "hard",
+    eligibility: "High school students interested in marine science, oceanography, and environmental studies.",
+    tags: ["science", "environment", "marine", "research"],
+    description: "An immersive ocean studies program combining classroom learning with hands-on research aboard a historic sailing vessel.",
+    link: null,
+    competitiveness: "Competitive",
+    requirements: "Interest in marine science, physical fitness for on-board work",
+    upside: "Unique oceanic research experience, sailing certification, environmental fieldwork"
+  },
+  {
+    name: "Talaria Summer Institute",
+    organization: "Talaria",
+    type: "program",
+    location: "Online and In Person",
+    duration: "Summer (Various)",
+    deadline: "Rolling",
+    difficulty: "easy",
+    eligibility: "High school students seeking leadership and personal development opportunities.",
+    tags: ["leadership", "innovation", "personal development", "career"],
+    description: "A flexible summer institute offering workshops and projects in leadership, innovation skills, and career readiness.",
+    link: null,
+    competitiveness: "Open enrollment",
+    requirements: "Open to all high school students, self-motivation",
+    upside: "Flexible format, career skills, leadership certificate"
+  },
+  {
+    name: "U.S. Department of Education Internships",
+    organization: "United States Department of Education",
+    type: "internship",
+    location: "Washington, DC",
+    duration: "Various",
+    deadline: "Rolling",
+    difficulty: "hard",
+    eligibility: "High school and college students interested in education policy and public service.",
+    tags: ["government", "policy", "education", "public service"],
+    description: "Internship opportunities at the federal Department of Education working on education policy, research, and program administration.",
+    link: null,
+    competitiveness: "Competitive",
+    requirements: "Interest in education policy, U.S. citizenship may be required",
+    upside: "Federal government experience, policy exposure, public service credentials"
+  },
+  {
+    name: "Agri-TREK/Sci-TREK",
+    organization: "Tuskegee University",
+    type: "program",
+    location: "Tuskegee, AL",
+    duration: "Jun 7 - Jun 20",
+    deadline: "Rolling",
+    difficulty: "medium",
+    eligibility: "High school students interested in agriculture, science, and technology.",
+    tags: ["stem", "agriculture", "science", "technology"],
+    description: "A two-week residential program exploring the intersection of agriculture and science through hands-on experiments and field work at a historic university.",
+    link: null,
+    competitiveness: "Moderate",
+    requirements: "Interest in agriculture or science, willingness to participate in field activities",
+    upside: "Residential college experience, hands-on science, agricultural technology exposure"
+  },
+  {
+    name: "Austin Public Library Teen Volunteer Program",
+    organization: "Austin Public Library",
+    type: "volunteer",
+    location: "Austin, TX",
+    duration: "Year Round",
+    deadline: "Rolling",
+    difficulty: "easy",
+    eligibility: "Teenagers interested in community service and library programs.",
+    tags: ["community", "volunteer", "service", "library"],
+    description: "A flexible volunteer program where teens help with library events, tutoring, and community outreach activities.",
+    link: null,
+    competitiveness: "Open enrollment",
+    requirements: "Teen age (13-18), interest in helping community",
+    upside: "Community service hours, flexible scheduling, library experience"
+  },
+  {
+    name: "Bossgirls Summer Program",
+    organization: "Zahn Innovation Center",
+    type: "program",
+    location: "New York, NY",
+    duration: "Jun 29 - Jul 30",
+    deadline: "Rolling",
+    difficulty: "medium",
+    eligibility: "Young women and gender-diverse students interested in entrepreneurship and business.",
+    tags: ["business", "entrepreneurship", "leadership", "women in stem"],
+    description: "A month-long entrepreneurship program empowering young women to develop business ideas, build prototypes, and pitch to mentors.",
+    link: null,
+    competitiveness: "Moderate",
+    requirements: "Identify as female or gender-diverse, interest in entrepreneurship",
+    upside: "Women-focused mentorship, prototype building, pitch experience"
+  },
+  {
+    name: "Camp Innovate and Investigate",
+    organization: "The College of New Jersey",
+    type: "program",
+    location: "Ewing Township, NJ",
+    duration: "Jul 20 - Jul 24",
+    deadline: "Rolling",
+    difficulty: "easy",
+    eligibility: "Middle and high school students curious about STEM and innovation.",
+    tags: ["stem", "innovation", "hands-on", "beginner"],
+    description: "A week-long day camp offering hands-on STEM activities, experiments, and teamwork challenges at a local college campus.",
+    link: null,
+    competitiveness: "Open enrollment",
+    requirements: "Curiosity about STEM, ability to attend daily sessions",
+    upside: "Short commitment, fun hands-on projects, college campus exposure"
+  },
+  {
+    name: "Chicago Summer Business Institute",
+    organization: "Chicago Summer Business Institute",
+    type: "program",
+    location: "Chicago, IL",
+    duration: "Jun - Jul (Summer)",
+    deadline: "Rolling",
+    difficulty: "medium",
+    eligibility: "High school students interested in business, finance, and entrepreneurship.",
+    tags: ["business", "finance", "entrepreneurship", "career"],
+    description: "An intensive business program in Chicago featuring workshops, company visits, and mentorship from industry professionals.",
+    link: null,
+    competitiveness: "Moderate",
+    requirements: "Interest in business careers, willingness to participate actively",
+    upside: "Company visits, professional mentorship, Chicago business network"
+  },
+  {
+    name: "Engineering Possibilities in College (EPIC)",
+    organization: "Cal State Poly",
+    type: "program",
+    location: "San Luis Obispo, CA",
+    duration: "Various",
+    deadline: "Rolling",
+    difficulty: "medium",
+    eligibility: "High school students curious about engineering and technical problem-solving.",
+    tags: ["engineering", "stem", "technology", "hands-on"],
+    description: "A residential engineering camp at Cal Poly where students explore different engineering disciplines through projects and lab tours.",
+    link: null,
+    competitiveness: "Moderate",
+    requirements: "Interest in engineering, ability to participate in residential program",
+    upside: "Engineering exposure across disciplines, campus life, hands-on projects"
+  },
+  {
+    name: "Maine Media Academy Summer Programs",
+    organization: "Maine Media Academy",
+    type: "program",
+    location: "Rockport, ME",
+    duration: "Various",
+    deadline: "Rolling",
+    difficulty: "medium",
+    eligibility: "High school students interested in photography, filmmaking, writing, and visual arts.",
+    tags: ["arts", "photography", "film", "creative"],
+    description: "Week-long intensive workshops in photography, video production, creative writing, and graphic design at a professional arts campus.",
+    link: null,
+    competitiveness: "Moderate",
+    requirements: "Passion for creative arts, specific program requirements vary",
+    upside: "Professional equipment access, portfolio building, creative community"
+  },
+  {
+    name: "Peace Ambassador Leadership Summit (PALS)",
+    organization: "NVEEE",
+    type: "program",
+    location: "Various (In Person)",
+    duration: "Various",
+    deadline: "Rolling",
+    difficulty: "easy",
+    eligibility: "High school students passionate about social justice, equality, and community leadership.",
+    tags: ["leadership", "social justice", "community", "activism"],
+    description: "A leadership summit bringing together young people to develop skills in advocacy, community organizing, and peaceful change-making.",
+    link: null,
+    competitiveness: "Open enrollment",
+    requirements: "Passion for social impact, willingness to collaborate",
+    upside: "Activism skills, network of young leaders, social impact experience"
+  },
+  {
+    name: "Students Making Illness a Little Easier (SMILE)",
+    organization: "MarinHealth",
+    type: "volunteer",
+    location: "Kentfield, CA",
+    duration: "Year Round (Jan 2026 - Dec 2027)",
+    deadline: "Rolling",
+    difficulty: "easy",
+    eligibility: "Teen volunteers interested in healthcare, patient support, and community wellness.",
+    tags: ["healthcare", "volunteer", "community", "service"],
+    description: "A volunteer program where teens support hospital patients, assist families, and contribute to wellness programs at a regional medical center.",
+    link: null,
+    competitiveness: "Open enrollment",
+    requirements: "Teen age, interest in healthcare, basic interpersonal skills",
+    upside: "Healthcare exposure, patient interaction experience, community service hours"
   }
 ];
-
-const keywordGroups = {
-  leadership: ["leader", "leadership", "captain", "president", "founder", "organize"],
-  writing: ["writing", "essay", "journalism", "editor", "blog", "storytelling"],
-  research: ["research", "analysis", "science fair", "investigation", "lab"],
-  stem: ["math", "science", "engineering", "robotics", "coding", "computer science", "stem"],
-  business: ["business", "entrepreneurship", "marketing", "finance", "deca"],
-  art: ["art", "design", "illustration", "photography", "creative"],
-  publicSpeaking: ["debate", "speech", "public speaking", "model un", "presentation"],
-  community: ["community service", "volunteer", "service", "nonprofit", "mentoring", "tutoring"],
-  athletics: ["sports", "athlete", "varsity", "track", "basketball", "soccer"],
-};
-
-const upsideKeywords = {
-  95: ["full ride", "$10000", "$20,000", "$25,000", "national recognition", "paid internship"],
-  82: ["$5000", "$2,500", "$3000", "stipend", "statewide", "regional"],
-  68: ["certificate", "local recognition", "$1000", "$500", "resume"],
-};
-
-const competitivenessKeywords = {
-  20: ["highly competitive", "national", "international", "selective", "top 1%", "prestigious"],
-  45: ["competitive", "statewide", "limited spots", "rigorous"],
-  70: ["moderate", "regional", "district"],
-  88: ["local", "school-based", "community", "open enrollment", "beginner-friendly"],
-};
-
-const difficultyKeywords = {
-  advanced: ["advanced", "expert", "published research", "portfolio required", "prior internship", "college-level"],
-  intermediate: ["intermediate", "some experience", "project-based", "essay", "recommendation"],
-  beginner: ["beginner", "entry-level", "no experience required", "introductory"],
-};
-
-const gradePattern = /\b(8th|9th|10th|11th|12th|freshman|sophomore|junior|senior)\b/gi;
-
-analyzeButton.addEventListener("click", () => {
-  if (!studentProfileInput.value.trim()) {
-    showMissingProfileState("Add a student profile first, then I can score your pasted opportunities.");
-    return;
-  }
-
-  if (!opportunitiesInput.value.trim()) {
-    resultStatus.textContent = "Paste at least one opportunity or use the website catalog button.";
-    opportunitiesInput.focus();
-    return;
-  }
-
-  const result = rankOpportunities(studentProfileInput.value, opportunitiesInput.value);
-  renderResults(result);
-  resultStatus.textContent = "Ranked opportunities from your pasted list.";
-});
-
-analyzeCatalogButton.addEventListener("click", () => {
-  if (!studentProfileInput.value.trim()) {
-    showMissingProfileState("Add a student profile first, then I can match it against the website opportunity catalog.");
-    return;
-  }
-
-  const result = rankCatalog(studentProfileInput.value);
-  renderResults(result);
-  resultStatus.textContent = `Matched the student against ${catalogOpportunities.length} built-in website opportunities.`;
-});
-
-loadSampleButton.addEventListener("click", () => {
-  studentProfileInput.value = `11th grade student interested in business, debate, and community service.
-Skills: public speaking, writing, research, Canva, event planning.
-Achievements: DECA state qualifier, student council secretary, school newspaper contributor.
-Experience: volunteer tutor, organized a school donation drive, some internship exposure through job shadowing.`;
-
-  opportunitiesInput.value = `Name: County Youth Leadership Scholarship
-Type: Scholarship
-Eligibility: High school juniors and seniors in the county
-Requirements: Essay, leadership examples, community service
-Competitiveness: Moderate
-Difficulty: Intermediate
-Upside: $2,500 and local recognition
-
-Name: National STEM Research Fellowship
-Type: Internship
-Eligibility: High school juniors with strong lab research experience
-Requirements: Prior research project, recommendation letters, technical interview
-Competitiveness: Highly competitive
-Difficulty: Advanced
-Upside: Paid internship and national recognition
-
-Name: Community Impact Essay Contest
-Type: Competition
-Eligibility: High school students
-Requirements: 1,000-word essay on service leadership
-Competitiveness: Local
-Difficulty: Intermediate
-Upside: $1,000 and local media feature
-
-Name: Startup Pitch Challenge
-Type: Competition
-Eligibility: High school students interested in entrepreneurship
-Requirements: Business idea pitch deck and live presentation
-Competitiveness: Regional
-Difficulty: Intermediate
-Upside: $3,000 and mentor access`;
-
-  const result = rankOpportunities(studentProfileInput.value, opportunitiesInput.value);
-  renderResults(result);
-});
-
-loadCatalogButton.addEventListener("click", () => {
-  opportunitiesInput.value = catalogToTextarea(catalogOpportunities);
-  resultStatus.textContent = `Loaded ${catalogOpportunities.length} website opportunities into the input box.`;
-  opportunitiesInput.focus();
-});
-
-function rankOpportunities(studentProfile, rawOpportunities) {
-  const opportunities = parseOpportunities(rawOpportunities);
-
-  if (!studentProfile.trim() || opportunities.length === 0) {
-    return emptyResult();
-  }
-
-  const studentSignals = buildStudentSignals(studentProfile);
-  return buildRecommendationResult(opportunities, studentSignals);
-}
-
-function rankCatalog(studentProfile) {
-  if (!studentProfile.trim()) {
-    return emptyResult();
-  }
-
-  const studentSignals = buildStudentSignals(studentProfile);
-  return buildRecommendationResult(catalogOpportunities, studentSignals);
-}
-
-function parseOpportunities(rawText) {
-  return rawText
-    .split(/\n\s*\n/)
-    .map((block) => block.trim())
-    .filter(Boolean)
-    .map((block) => {
-      const lines = block.split("\n").map((line) => line.trim()).filter(Boolean);
-      const fields = {};
-
-      for (const line of lines) {
-        const match = line.match(/^([^:]+):\s*(.+)$/);
-        if (match) {
-          fields[match[1].toLowerCase()] = match[2];
-        }
-      }
-
-      return {
-        raw: block,
-        name: fields.name || lines[0] || "Unnamed Opportunity",
-        organization: fields.organization || "",
-        type: fields.type || "",
-        location: fields.location || "",
-        duration: fields.duration || "",
-        deadline: fields.deadline || null,
-        tags: parseTags(fields.tags || ""),
-        description: fields.description || "",
-        link: fields.link || null,
-        eligibility: fields.eligibility || "",
-        requirements: fields.requirements || "",
-        competitiveness: fields.competitiveness || "",
-        difficulty: fields.difficulty || "",
-        upside: fields.upside || "",
-      };
-    });
-}
-
-function buildStudentSignals(profile) {
-  const text = profile.toLowerCase();
-  const keywordHits = Object.entries(keywordGroups)
-    .filter(([, words]) => words.some((word) => text.includes(word)))
-    .map(([group]) => group);
-
-  return {
-    text,
-    gradeLevel: extractGradeLevel(text),
-    keywordHits,
-    hasStrongTrackRecord: /(finalist|winner|captain|editor|president|founder|qualifier|officer)/i.test(profile),
-    hasExperience: /(internship|research|volunteer|job shadow|leadership|project|competition)/i.test(profile),
-    profileSummary: summarizeProfile(profile, keywordHits),
-  };
-}
-
-function extractGradeLevel(text) {
-  const match = text.match(gradePattern);
-  return match ? match[0].toLowerCase() : "";
-}
-
-function scoreOpportunity(opportunity, studentSignals) {
-  const searchable = [
-    opportunity.name,
-    opportunity.organization || "",
-    opportunity.type,
-    opportunity.location || "",
-    opportunity.duration || "",
-    opportunity.deadline || "",
-    Array.isArray(opportunity.tags) ? opportunity.tags.join(" ") : "",
-    opportunity.description || "",
-    opportunity.eligibility,
-    opportunity.requirements,
-    opportunity.competitiveness,
-    opportunity.difficulty,
-    opportunity.upside,
-  ].join(" ").toLowerCase();
-
-  const fit = scoreFit(searchable, studentSignals);
-  const difficultyMatch = scoreDifficulty(searchable, studentSignals);
-  const competitiveness = scoreCompetitiveness(searchable);
-  const accessibility = scoreAccessibility(searchable, studentSignals);
-  const upside = scoreUpside(searchable);
-
-  const chanceScore = Math.round(
-    fit * 0.4 +
-    difficultyMatch * 0.25 +
-    competitiveness * 0.2 +
-    accessibility * 0.1 +
-    upside * 0.05
-  );
-
-  const keyStrengthMatch = determineStrengthMatch(searchable, studentSignals);
-  const riskFactor = determineRiskFactor(searchable, studentSignals, accessibility, difficultyMatch, competitiveness);
-  const rejectionReason = getRejectionReason(opportunity, searchable, studentSignals, fit, difficultyMatch, accessibility);
-
-  return {
-    ...opportunity,
-    chance_score: clamp(chanceScore, 0, 100),
-    chance_level: chanceScore >= 78 ? "HIGH" : chanceScore >= 58 ? "MEDIUM" : "LOW",
-    reason: buildReason(opportunity, fit, difficultyMatch, competitiveness, accessibility, studentSignals),
-    key_strength_match: keyStrengthMatch,
-    risk_factor: riskFactor,
-    action_plan: buildActionPlan(opportunity, keyStrengthMatch),
-    rejection_reason: rejectionReason,
-  };
-}
-
-function scoreFit(searchable, studentSignals) {
-  const matches = studentSignals.keywordHits.filter((group) =>
-    keywordGroups[group].some((word) => searchable.includes(word))
-  ).length;
-
-  const base = 35 + matches * 16;
-  const bonus = /essay|leadership|community service|pitch|presentation|research|writing/i.test(searchable) && studentSignals.hasExperience ? 10 : 0;
-  return clamp(base + bonus, 20, 98);
-}
-
-function scoreDifficulty(searchable, studentSignals) {
-  let target = 72;
-
-  if (difficultyKeywords.advanced.some((word) => searchable.includes(word))) {
-    target = studentSignals.hasStrongTrackRecord ? 60 : 34;
-  } else if (difficultyKeywords.intermediate.some((word) => searchable.includes(word))) {
-    target = studentSignals.hasExperience ? 82 : 62;
-  } else if (difficultyKeywords.beginner.some((word) => searchable.includes(word))) {
-    target = 86;
-  }
-
-  if (/technical interview|published research|prior internship/i.test(searchable) && !studentSignals.text.includes("research")) {
-    target -= 16;
-  }
-
-  return clamp(target, 15, 95);
-}
-
-function scoreCompetitiveness(searchable) {
-  for (const [score, words] of Object.entries(competitivenessKeywords)) {
-    if (words.some((word) => searchable.includes(word))) {
-      return Number(score);
-    }
-  }
-
-  return 58;
-}
-
-function scoreAccessibility(searchable, studentSignals) {
-  let score = 75;
-
-  if (studentSignals.gradeLevel) {
-    const gradeTerms = normalizeGradeAliases(studentSignals.gradeLevel);
-    const mentionsGrade = gradeTerms.some((term) => searchable.includes(term));
-
-    if (mentionsGrade) {
-      score = 92;
-    } else if (/college|undergraduate|graduate/.test(searchable)) {
-      score = 18;
-    }
-  }
-
-  if (/no experience required|open to all high school students|high school students/i.test(searchable)) {
-    score = Math.max(score, 88);
-  }
-
-  if (/prerequisite|must have prior/i.test(searchable) && !studentSignals.hasExperience) {
-    score -= 18;
-  }
-
-  return clamp(score, 10, 96);
-}
-
-function scoreUpside(searchable) {
-  for (const [score, words] of Object.entries(upsideKeywords)) {
-    if (words.some((word) => searchable.includes(word.toLowerCase()))) {
-      return Number(score);
-    }
-  }
-
-  return 60;
-}
-
-function determineStrengthMatch(searchable, studentSignals) {
-  for (const group of studentSignals.keywordHits) {
-    if (keywordGroups[group].some((word) => searchable.includes(word))) {
-      return readableGroupName(group);
-    }
-  }
-
-  return studentSignals.hasExperience ? "General experience alignment" : "Broad eligibility fit";
-}
-
-function determineRiskFactor(searchable, studentSignals, accessibility, difficultyMatch, competitiveness) {
-  if (accessibility < 40) {
-    return "Eligibility looks weak or unclear for this student's grade level.";
-  }
-
-  if (difficultyMatch < 45) {
-    return "The requirements appear more advanced than the student's current experience.";
-  }
-
-  if (competitiveness < 35) {
-    return "Strong fit, but the selection pool is likely very competitive.";
-  }
-
-  if (/recommendation|interview|portfolio/i.test(searchable)) {
-    return "Application quality will depend on preparing strong supporting materials.";
-  }
-
-  return "Main risk is execution quality rather than fit.";
-}
-
-function buildReason(opportunity, fit, difficultyMatch, competitiveness, accessibility, studentSignals) {
-  const strengths = studentSignals.keywordHits.length
-    ? studentSignals.keywordHits.map(readableGroupName).slice(0, 2).join(" and ")
-    : "their current profile";
-
-  const difficultyText = difficultyMatch >= 75
-    ? "The difficulty level appears well matched to the student's current stage."
-    : "The difficulty is somewhat stretch-level but still workable.";
-
-  const competitionText = competitiveness >= 70
-    ? "It also appears less saturated than national prestige options."
-    : "Competition is meaningful, but still more realistic than top-tier prestige options.";
-
-  const accessText = accessibility >= 80
-    ? "Eligibility fit is strong."
-    : "Eligibility should be checked carefully before applying.";
-
-  return `${opportunity.name} is a strong match because it aligns with ${strengths}, which show up directly in the opportunity requirements. ${difficultyText} ${competitionText} ${accessText}`;
-}
-
-function buildActionPlan(opportunity, keyStrengthMatch) {
-  const parts = [
-    `Pull the exact application requirements for ${opportunity.name}.`,
-    `Draft a response that highlights ${keyStrengthMatch.toLowerCase()}.`,
-  ];
-
-  if (/essay/i.test(opportunity.requirements)) {
-    parts.push("Write the first essay draft today and tailor one concrete example to the prompt.");
-  } else if (/interview/i.test(opportunity.requirements)) {
-    parts.push("Prepare three concise stories that prove readiness for the interview.");
-  } else if (/presentation|pitch/i.test(opportunity.requirements)) {
-    parts.push("Build a one-page pitch outline and rehearse a 60-second version immediately.");
-  } else {
-    parts.push("Create a submission checklist and finish the strongest required artifact first.");
-  }
-
-  return parts.join(" ");
-}
-
-function formatOpportunity(opportunity) {
-  return {
-    name: opportunity.name,
-    chance_level: opportunity.chance_level,
-    why_best_match: opportunity.reason,
-    next_step: opportunity.action_plan,
-    organization: opportunity.organization || null,
-    type: opportunity.type || null,
-    location: opportunity.location || null,
-    duration: opportunity.duration || null,
-    deadline: opportunity.deadline || null,
-    difficulty: opportunity.difficulty || null,
-    eligibility: opportunity.eligibility || null,
-    tags: opportunity.tags || [],
-    description: opportunity.description || null,
-    link: opportunity.link || null,
-    chance_score: opportunity.chance_score,
-    risk_factor: opportunity.risk_factor,
-  };
-}
-
-function readableGroupName(group) {
-  const labels = {
-    leadership: "Leadership experience",
-    writing: "Writing strength",
-    research: "Research experience",
-    stem: "STEM alignment",
-    business: "Business interest",
-    art: "Creative skill",
-    publicSpeaking: "Public speaking ability",
-    community: "Community service record",
-    athletics: "Athletic involvement",
-  };
-
-  return labels[group] || "Relevant experience";
-}
-
-function normalizeGradeAliases(gradeLevel) {
-  const aliasMap = {
-    "9th": ["9th", "freshman"],
-    freshman: ["9th", "freshman"],
-    "10th": ["10th", "sophomore"],
-    sophomore: ["10th", "sophomore"],
-    "11th": ["11th", "junior"],
-    junior: ["11th", "junior"],
-    "12th": ["12th", "senior"],
-    senior: ["12th", "senior"],
-    "8th": ["8th"],
-  };
-
-  return aliasMap[gradeLevel] || [gradeLevel];
-}
-
-function clamp(value, min, max) {
-  return Math.min(max, Math.max(min, value));
-}
-
-function renderResults(result) {
-  renderCards(result.recommendations, result.rejected_summary);
-  if (!resultStatus.textContent || resultStatus.textContent.startsWith("Waiting")) {
-    updateResultStatus(result.recommendations, result.rejected_summary);
-  }
-}
-
-function renderCards(opportunities, rejectedSummary) {
-  if (!opportunities.length) {
-    resultCards.innerHTML = `
-      <article class="result-card">
-        <p>No ranked opportunities yet. Add a student profile and at least one opportunity block to generate results.</p>
-      </article>
-    `;
-    return;
-  }
-
-  resultCards.innerHTML = opportunities.map((opportunity, index) => `
-    <article class="result-card">
-      <div class="result-card-header">
-        <div class="result-title-wrap">
-          <span class="result-rank">${index + 1}</span>
-          <h3>${escapeHtml(opportunity.name)}</h3>
-        </div>
-        <div class="result-score">
-          <strong>${opportunity.chance_score}</strong>
-          <span>Chance Score</span>
-        </div>
-      </div>
-      <div class="chance-pill ${chanceClass(opportunity.chance_level)}">${escapeHtml(opportunity.chance_level)}</div>
-      <p><span class="result-label">Why it fits:</span> ${escapeHtml(opportunity.why_best_match)}</p>
-      <p><span class="result-label">Risk:</span> ${escapeHtml(opportunity.risk_factor)}</p>
-      <p><span class="result-label">Next move:</span> ${escapeHtml(opportunity.next_step)}</p>
-      ${opportunity.link ? `<p><span class="result-label">Source:</span> <a href="${escapeHtml(opportunity.link)}" target="_blank" rel="noreferrer">View program</a></p>` : ""}
-    </article>
-  `).join("") + `
-    <article class="result-card">
-      <p><span class="result-label">Rejected summary:</span> ${escapeHtml(rejectedSummary)}</p>
-    </article>
-  `;
-}
-
-function updateResultStatus(opportunities, rejectedSummary) {
-  if (!opportunities.length) {
-    resultStatus.textContent = "Waiting for enough input to rank opportunities.";
-    return;
-  }
-
-  const highCount = opportunities.filter((item) => item.chance_level === "HIGH").length;
-  resultStatus.textContent = `Selected ${opportunities.length} recommendations after filtering. ${highCount} are high-probability plays. ${rejectedSummary}`;
-}
-
-function showMissingProfileState(message) {
-  resultStatus.textContent = message;
-  studentProfileInput.focus();
-  renderCards([]);
-}
-
-function chanceClass(level) {
-  if (level === "HIGH") {
-    return "chance-high";
-  }
-
-  if (level === "MEDIUM") {
-    return "chance-medium";
-  }
-
-  return "chance-low";
-}
-
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-function parseTags(value) {
-  if (!value.trim()) {
-    return [];
-  }
-
-  return value
-    .split(",")
-    .map((tag) => tag.trim())
-    .filter(Boolean);
-}
-
-function catalogToTextarea(items) {
-  return items.map((item) => {
-    const fields = [
-      `Name: ${item.name}`,
-      `Organization: ${item.organization}`,
-      `Type: ${item.type}`,
-      `Location: ${item.location}`,
-      `Duration: ${item.duration}`,
-      `Deadline: ${item.deadline ?? "null"}`,
-      `Difficulty: ${item.difficulty}`,
-      `Eligibility: ${item.eligibility}`,
-      `Tags: ${item.tags.join(", ")}`,
-      `Description: ${item.description}`,
-      `Requirements: ${item.requirements}`,
-      `Competitiveness: ${item.competitiveness}`,
-      `Upside: ${item.upside}`,
-      `Link: ${item.link}`
-    ];
-
-    return fields.join("\n");
-  }).join("\n\n");
-}
-
-function renderCatalog(items) {
-  catalogGrid.innerHTML = items.map((item) => `
-    <article class="catalog-card">
-      <div class="catalog-meta">
-        <span class="catalog-pill">${escapeHtml(item.type)}</span>
-        <span class="catalog-pill">${escapeHtml(item.difficulty)}</span>
-      </div>
-      <h3>${escapeHtml(item.name)}</h3>
-      <p><span class="result-label">Organization:</span> ${escapeHtml(item.organization)}</p>
-      <p><span class="result-label">Location:</span> ${escapeHtml(item.location)}</p>
-      <p><span class="result-label">Duration:</span> ${escapeHtml(item.duration)}</p>
-      <p><span class="result-label">Eligibility:</span> ${escapeHtml(item.eligibility)}</p>
-      <p>${escapeHtml(item.description)}</p>
-      <div class="catalog-tags">
-        ${item.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
-      </div>
-      <a href="${escapeHtml(item.link)}" target="_blank" rel="noreferrer">Open source listing</a>
-    </article>
-  `).join("");
-}
-
-function buildRecommendationResult(opportunities, studentSignals) {
-  const scored = opportunities.map((opportunity) => scoreOpportunity(opportunity, studentSignals));
-  const kept = scored.filter((opportunity) => !opportunity.rejection_reason);
-  const rejected = scored.filter((opportunity) => opportunity.rejection_reason);
-  const fallbackPool = kept.length >= 3 ? kept : scored;
-  const recommendations = fallbackPool
-    .sort((a, b) => b.chance_score - a.chance_score)
-    .slice(0, 3)
-    .map(formatOpportunity);
-
-  return {
-    recommendations,
-    rejected_summary: buildRejectedSummary(rejected, opportunities.length, recommendations.length),
-  };
-}
-
-function getRejectionReason(opportunity, searchable, studentSignals, fit, difficultyMatch, accessibility) {
-  if (accessibility < 35) {
-    return "it does not match the student's grade-level or stated eligibility";
-  }
-
-  if (difficultyMatch < 35) {
-    return "it appears far too advanced for the student's current experience level";
-  }
-
-  if (fit < 42) {
-    return "it has weak alignment with the student's interests and demonstrated strengths";
-  }
-
-  if (/rising ninth graders/i.test(opportunity.eligibility || "") && !matchesGrade(searchable, studentSignals.gradeLevel)) {
-    return "it targets a different grade band than the student";
-  }
-
-  return "";
-}
-
-function matchesGrade(searchable, gradeLevel) {
-  if (!gradeLevel) {
-    return true;
-  }
-
-  return normalizeGradeAliases(gradeLevel).some((term) => searchable.includes(term));
-}
-
-function buildRejectedSummary(rejected, totalCount, selectedCount) {
-  if (!rejected.length) {
-    return selectedCount < totalCount
-      ? "A few lower-scoring options were left out because stronger realistic matches were available."
-      : "No opportunities were filtered out; the top three were chosen from the full set."
-  }
-
-  const reasons = summarizeRejectedReasons(rejected);
-  return `Rejected ${rejected.length} opportunities mostly because ${reasons}.`;
-}
-
-function summarizeRejectedReasons(rejected) {
-  const counts = {};
-
-  for (const item of rejected) {
-    counts[item.rejection_reason] = (counts[item.rejection_reason] || 0) + 1;
-  }
-
-  return Object.entries(counts)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 2)
-    .map(([reason]) => reason)
-    .join(" and ");
-}
-
-function emptyResult() {
-  return {
-    recommendations: [],
-    rejected_summary: "",
-  };
-}
-
-function summarizeProfile(profile, keywordHits) {
-  if (!keywordHits.length) {
-    return "the student's current profile";
-  }
-
-  return keywordHits.map(readableGroupName).slice(0, 2).join(" and ");
-}
-
-renderCatalog(catalogOpportunities);
-inputHint.textContent = "Generate Top 3 uses the pasted list. Use Website Opportunities ranks the student against the built-in Snowday catalog.";
+```
