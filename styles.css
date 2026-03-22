@@ -138,6 +138,12 @@ label {
   font-weight: 700;
 }
 
+.input-hint {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 textarea {
   width: 100%;
   min-height: 260px;

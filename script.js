@@ -3,6 +3,7 @@ const opportunitiesInput = document.getElementById("opportunities");
 const output = document.getElementById("output");
 const resultCards = document.getElementById("resultCards");
 const resultStatus = document.getElementById("resultStatus");
+const inputHint = document.getElementById("inputHint");
 const analyzeButton = document.getElementById("analyzeButton");
 const analyzeCatalogButton = document.getElementById("analyzeCatalogButton");
 const loadSampleButton = document.getElementById("loadSampleButton");
@@ -195,13 +196,31 @@ const difficultyKeywords = {
 const gradePattern = /\b(8th|9th|10th|11th|12th|freshman|sophomore|junior|senior)\b/gi;
 
 analyzeButton.addEventListener("click", () => {
+  if (!studentProfileInput.value.trim()) {
+    showMissingProfileState("Add a student profile first, then I can score your pasted opportunities.");
+    return;
+  }
+
+  if (!opportunitiesInput.value.trim()) {
+    resultStatus.textContent = "Paste at least one opportunity or use the website catalog button.";
+    opportunitiesInput.focus();
+    return;
+  }
+
   const result = rankOpportunities(studentProfileInput.value, opportunitiesInput.value);
   renderResults(result);
+  resultStatus.textContent = "Ranked opportunities from your pasted list.";
 });
 
 analyzeCatalogButton.addEventListener("click", () => {
+  if (!studentProfileInput.value.trim()) {
+    showMissingProfileState("Add a student profile first, then I can match it against the website opportunity catalog.");
+    return;
+  }
+
   const result = rankCatalog(studentProfileInput.value);
   renderResults(result);
+  resultStatus.textContent = `Matched the student against ${catalogOpportunities.length} built-in website opportunities.`;
 });
 
 loadSampleButton.addEventListener("click", () => {
@@ -263,6 +282,8 @@ copyButton.addEventListener("click", async () => {
 
 loadCatalogButton.addEventListener("click", () => {
   opportunitiesInput.value = catalogToTextarea(catalogOpportunities);
+  resultStatus.textContent = `Loaded ${catalogOpportunities.length} website opportunities into the input box.`;
+  opportunitiesInput.focus();
 });
 
 function rankOpportunities(studentProfile, rawOpportunities) {
@@ -602,7 +623,9 @@ function renderResults(result) {
   latestJson = JSON.stringify(result, null, 2);
   output.textContent = latestJson;
   renderCards(result.top_opportunities);
-  updateResultStatus(result.top_opportunities);
+  if (!resultStatus.textContent || resultStatus.textContent.startsWith("Waiting")) {
+    updateResultStatus(result.top_opportunities);
+  }
 }
 
 function renderCards(opportunities) {
@@ -645,6 +668,16 @@ function updateResultStatus(opportunities) {
 
   const highCount = opportunities.filter((item) => item.chance_level === "HIGH").length;
   resultStatus.textContent = `Ranked ${opportunities.length} opportunities. ${highCount} marked as high-probability plays.`;
+}
+
+function showMissingProfileState(message) {
+  resultStatus.textContent = message;
+  studentProfileInput.focus();
+  renderCards([]);
+  latestJson = `{
+  "top_opportunities": []
+}`;
+  output.textContent = latestJson;
 }
 
 function chanceClass(level) {
@@ -724,3 +757,4 @@ function renderCatalog(items) {
 }
 
 renderCatalog(catalogOpportunities);
+inputHint.textContent = "Generate Top 3 uses the pasted list. Use Website Opportunities ranks the student against the built-in Snowday catalog.";
