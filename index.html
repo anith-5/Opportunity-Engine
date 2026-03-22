@@ -6,25 +6,51 @@
   <title>Opportunity Selection Engine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="page-shell">
     <header class="hero">
-      <p class="eyebrow">Decision Engine</p>
-      <h1>Pick the top 3 opportunities with the best real odds of success.</h1>
-      <p class="hero-copy">
-        This tool ranks scholarships, competitions, and internships by realistic win probability,
-        not prestige. Paste a student profile, add the opportunity list, and get JSON-ready output.
-      </p>
+      <div class="hero-copy-block">
+        <p class="eyebrow">Opportunity Match Engine</p>
+        <h1>Find the top 3 opportunities a student can realistically win.</h1>
+        <p class="hero-copy">
+          This tool filters weak-fit options, ranks the realistic ones, and recommends the strongest three.
+          It can score either your own opportunity list or the built-in Snowday summer catalog.
+        </p>
+      </div>
+
+      <div class="hero-metrics">
+        <article class="metric-card">
+          <span class="metric-label">Catalog Size</span>
+          <strong id="catalogCount">19</strong>
+          <p>Snowday opportunities built into the site</p>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Selection Style</span>
+          <strong>Fit First</strong>
+          <p>Realistic success is weighted over prestige</p>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Output</span>
+          <strong>Top 3</strong>
+          <p>Clear reasoning, risk, and next-step guidance</p>
+        </article>
+      </div>
     </header>
 
     <main class="workspace">
       <section class="panel input-panel">
         <div class="panel-header">
-          <h2>Inputs</h2>
-          <p>Describe the student, then either paste your own opportunities or use the built-in summer program list.</p>
+          <h2>Student Input</h2>
+          <p>Add the student profile, then choose whether to rank a custom list or the built-in website opportunities.</p>
+        </div>
+
+        <div class="panel-steps">
+          <span class="step-pill">1. Student profile</span>
+          <span class="step-pill">2. Choose source</span>
+          <span class="step-pill">3. Review top 3</span>
         </div>
 
         <label for="studentProfile">Student Profile</label>
@@ -33,7 +59,7 @@
 Skills: public speaking, writing, research, Canva.
 Achievements: school newspaper editor, DECA finalist, volunteer tutor."></textarea>
 
-        <label for="opportunities">Opportunities</label>
+        <label for="opportunities">Custom Opportunities</label>
         <textarea id="opportunities" placeholder="Enter one opportunity per block. Separate each one with a blank line.
 
 Example:
@@ -46,19 +72,21 @@ Difficulty: Intermediate
 Upside: $2,500 and local recognition"></textarea>
 
         <div class="actions">
-          <button id="analyzeButton" type="button">Generate Top 3</button>
+          <button id="analyzeButton" type="button">Analyze My List</button>
           <button id="analyzeCatalogButton" class="secondary" type="button">Use Website Opportunities</button>
-          <button id="loadSampleButton" class="secondary" type="button">Load Sample</button>
+          <button id="loadCatalogButton" class="secondary" type="button">Load Catalog</button>
+          <button id="loadSampleButton" class="ghost" type="button">Load Sample</button>
         </div>
+
         <p id="inputHint" class="input-hint">
-          Generate Top 3 uses the pasted list. Use Website Opportunities matches the student against the built-in Snowday catalog.
+          Analyze My List scores the pasted opportunities. Use Website Opportunities ranks the student against the built-in Snowday catalog.
         </p>
       </section>
 
       <section class="panel output-panel">
         <div class="panel-header">
-          <h2>Top 3 Recommendations</h2>
-          <p>See the strongest realistic opportunities for this student, with clear reasoning and next steps.</p>
+          <h2>Best-Fit Recommendations</h2>
+          <p>Only the strongest realistic opportunities should survive the filter.</p>
         </div>
 
         <div class="result-toolbar">
@@ -70,20 +98,19 @@ Upside: $2,500 and local recognition"></textarea>
     </main>
 
     <section class="panel catalog-panel">
-      <div class="panel-header">
-        <h2>Website Opportunity Catalog</h2>
-        <p>Built from Snowday summer program listings so students can be matched against real opportunities already on the site.</p>
-      </div>
-
-      <div class="catalog-toolbar">
-        <p class="catalog-note">Source: Snowday summer programs page and linked opportunity listings.</p>
-        <button id="loadCatalogButton" class="secondary" type="button">Load Catalog Into Input</button>
+      <div class="catalog-head">
+        <div class="panel-header">
+          <h2>Website Opportunity Catalog</h2>
+          <p>Built from Snowday summer program listings so the site can recommend real opportunities without needing the user to paste them first.</p>
+        </div>
+        <p class="catalog-note">Source: Snowday summer opportunities and linked program pages.</p>
       </div>
 
       <div id="catalogGrid" class="catalog-grid" aria-live="polite"></div>
     </section>
   </div>
 
+  <script src="catalog-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
