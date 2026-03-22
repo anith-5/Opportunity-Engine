@@ -24,7 +24,7 @@
       <section class="panel input-panel">
         <div class="panel-header">
           <h2>Inputs</h2>
-          <p>Describe the student and list the available opportunities.</p>
+          <p>Describe the student, then either paste your own opportunities or use the built-in summer program list.</p>
         </div>
 
         <label for="studentProfile">Student Profile</label>
@@ -47,6 +47,7 @@ Upside: $2,500 and local recognition"></textarea>
 
         <div class="actions">
           <button id="analyzeButton" type="button">Generate Top 3</button>
+          <button id="analyzeCatalogButton" class="secondary" type="button">Use Website Opportunities</button>
           <button id="loadSampleButton" class="secondary" type="button">Load Sample</button>
         </div>
       </section>
@@ -75,6 +76,20 @@ Upside: $2,500 and local recognition"></textarea>
         </div>
       </section>
     </main>
+
+    <section class="panel catalog-panel">
+      <div class="panel-header">
+        <h2>Website Opportunity Catalog</h2>
+        <p>Built from Snowday summer program listings so students can be matched against real opportunities already on the site.</p>
+      </div>
+
+      <div class="catalog-toolbar">
+        <p class="catalog-note">Source: Snowday summer programs page and linked opportunity listings.</p>
+        <button id="loadCatalogButton" class="secondary" type="button">Load Catalog Into Input</button>
+      </div>
+
+      <div id="catalogGrid" class="catalog-grid" aria-live="polite"></div>
+    </section>
   </div>
 
   <script src="script.js"></script>
